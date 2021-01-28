@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <style>
         .container-fluid {
             background-image: url('https://images.unsplash.com/photo-1542500186-6edb30855637?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80');
@@ -31,6 +31,11 @@
             float: right;
             background-color: #B94071;
         }
+        
+        #show1 {
+            display: none;
+            ;
+        }
     </style>
 
 </head>
@@ -53,17 +58,18 @@
                     <a class="nav-link" href="#">Pricing</a>
                 </li>
                 <li class="nav-item">
-                    <button id="show" type="button" class="btn btn-primary">click</button>
+
+                    <i class="show fal fa-times" id="show" style="color:red;font-size:50px;"></i>
+                    <i class="show fas fa-bars" id="show1" style="color:red;font-size:50px;"></i>
                 </li>
             </ul>
         </div>
     </nav>
     <div class="container-fluid">
-        <div class="contain">
 
+        <div class="contain">
         </div>
         <div class="contain1">
-
         </div>
     </div>
 </body>
@@ -71,16 +77,20 @@
 </html>
 <script>
     var i = 1;
-    $("#show").on('click', function() {
+    $(".show").on('click', function() {
         i = i + 1;
         if (i % 2 == 0) {
+            $("#show1").show();
+            $("#show").hide();
             $(".contain").animate({
-                width: '0px'
+                width: '0'
             }, 1000);
             $(".contain1").animate({
-                width: '0px'
+                width: '0'
             }, 1000);
         } else {
+            $("#show1").hide();
+            $("#show").show();
             $(".contain").animate({
                 width: '20%'
             }, 1000);
